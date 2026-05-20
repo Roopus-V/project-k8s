@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: blue-deployment
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: gb-app
+      version: blue
+
+  template:
+    metadata:
+      labels:
+        app: gb-app
+        version: blue
+
+    spec:
+      containers:
+      - name: blue
+        image: gb-app:v1
+
+        env:
+        - name: COLOR
+          value: "BLUE"
+
+        ports:
+        - containerPort: 5000
