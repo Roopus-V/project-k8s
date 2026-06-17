@@ -2,32 +2,32 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: blue-deployment
+  name: green-deployment
 
 spec:
-  replicas: 3
+  replicas: 1
 
   selector:
     matchLabels:
       app: gb-app
-      version: blue
+      version: green
 
   template:
     metadata:
       labels:
         app: gb-app
-        version: blue
+        version: green
 
     spec:
       containers:
-      - name: blue
+      - name: green
         image: gb-app:v1
 
         imagePullPolicy: Never
 
         env:
         - name: COLOR
-          value: "BLUE"
+          value: "GREEN"
 
         ports:
         - containerPort: 5000

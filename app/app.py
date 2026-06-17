@@ -17,6 +17,8 @@ color = os.getenv("COLOR", "UNKNOWN") #get env varible
 #print(VERSION)
 
 @app.route("/")
+@app.route("/blue")
+@app.route("/green")
 def home():
     REQUEST_COUNT.labels(container=color).inc()
     return f"{color} deployment"
