@@ -25,9 +25,9 @@ spec:
 
         imagePullPolicy: Never
 
-        env:
-        - name: COLOR
-          value: "GREEN"
+        envFrom:
+        - configMapRef:
+            name: green-config
 
         ports:
         - containerPort: 5000

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: blue-config
+
+data:
+  MESSAGE: "This is BLUE deployment"

@@ -13,15 +13,15 @@ REQUEST_COUNT = Counter(
 app = Flask(__name__) #initializing the app
 
 #VERSION = os.getenv("APP_VERSION", "Version 1 - Blue") #get env varible
-color = os.getenv("COLOR", "UNKNOWN") #get env varible
+message = os.getenv("MESSAGE", "NO MESSAGE") #get env varible
 #print(VERSION)
 
 @app.route("/")
 @app.route("/blue")
 @app.route("/green")
 def home():
-    REQUEST_COUNT.labels(container=color).inc()
-    return f"{color} deployment"
+    REQUEST_COUNT.labels(container=message).inc()
+    return f"{message}"
 
 @app.route("/metrics")
 def metrics():

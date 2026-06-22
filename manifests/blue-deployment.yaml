@@ -5,7 +5,7 @@ metadata:
   name: blue-deployment
 
 spec:
-  replicas: 3
+  replicas: 1 
 
   selector:
     matchLabels:
@@ -25,9 +25,9 @@ spec:
 
         imagePullPolicy: Never
 
-        env:
-        - name: COLOR
-          value: "BLUE"
+        envFrom:
+        - configMapRef:
+            name: blue-config
 
         ports:
         - containerPort: 5000
