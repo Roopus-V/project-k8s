@@ -5,7 +5,7 @@ metadata:
   name: blue-deployment
 
 spec:
-  replicas: 1 
+  replicas: 3 
 
   selector:
     matchLabels:
@@ -21,16 +21,26 @@ spec:
     spec:
       containers:
       - name: blue
-        image: gb-app:v1
+        image: gb-app:v3
 
         imagePullPolicy: Never
 
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        
         envFrom:
         - configMapRef:
             name: blue-config
 
         - secretRef:
             name: app-secret
+
 
         ports:
         - containerPort: 5000

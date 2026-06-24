@@ -23,7 +23,8 @@ def home():
     password = os.getenv("PASSWORD", "NO PASSWORD") #get secrets
     
     REQUEST_COUNT.labels(container=message).inc()
-    return f"{message}"
+    return "THIS IS A BROKEN VERSION"
+    #return f"{message} - VERSION 2"
 
 @app.route("/metrics")
 def metrics():
