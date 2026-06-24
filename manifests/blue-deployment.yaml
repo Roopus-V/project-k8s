@@ -29,5 +29,8 @@ spec:
         - configMapRef:
             name: blue-config
 
+        - secretRef:
+            name: app-secret
+
         ports:
         - containerPort: 5000

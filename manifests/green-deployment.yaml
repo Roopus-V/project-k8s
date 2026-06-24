@@ -28,6 +28,9 @@ spec:
         envFrom:
         - configMapRef:
             name: green-config
+        
+        - secretRef:
+            name: app-secret
 
         ports:
         - containerPort: 5000
